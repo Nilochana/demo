@@ -39,26 +39,25 @@ mysqli_select_db($con, 'eshopcart');
 $query = " SELECT `name`, `image`, `price`, `discount`
  FROM `ecart` order by id ASC ";
 
- $queryfire = mysqli_query($con,$query);
+ $result = mysqli_query($con,$query);
 
- $num = mysqli_num_rows($queryfire);
+ $num = mysqli_num_rows($result);
 
  if($num > 0){
-     while($product = mysqli_fetch_array($queryfire)){
+     while($product = mysqli_fetch_array($result)){
         ?>
 
-<div class="col-lg-3 col-md-3 col-sm-12">
+<div class="col-lg-3 col-md-3 col-sm-12" style="padding:25px;">
 
 <form>
 <div class="card">
 <h6 class="card-title bg-info text-white p-2 
 text-uppercase"> <?php echo 
 $product['name']; ?>   </h6>
-
-<div class="card-body">
+<div class="card-body" >
 <img src="<?php echo 
 $product['image']; ?>" alt="phone" class="
-img-fluid mb-2">
+img-fluid mb-2" style="height:150px;">
 
 <h6> &#8377; <?php echo $product['price']; ?><span>
 (<?php echo $product['discount']; ?>% off) </span>
